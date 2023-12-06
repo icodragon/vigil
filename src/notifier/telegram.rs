@@ -31,6 +31,7 @@ struct TelegramPayload<'a> {
     text: String,
     parse_mode: &'static str,
     disable_web_page_preview: bool,
+    message_thread_id: &'a str,
 }
 
 #[derive(Serialize)]
@@ -101,6 +102,7 @@ impl GenericNotifier for TelegramNotifier {
                 text: message,
                 parse_mode: "markdown",
                 disable_web_page_preview: true,
+                message_thread_id: &telegram.message_thread_id,
             };
 
             // Generate target API URL
