@@ -229,7 +229,8 @@ pub struct ConfigNotifyTelegram {
 pub struct ConfigNotifyPushover {
     pub app_token: String,
     pub user_keys: Vec<String>,
-
+    pub message_thread_id: String,
+    
     #[serde(default = "defaults::notify_generic_reminders_only")]
     pub reminders_only: bool,
 }
